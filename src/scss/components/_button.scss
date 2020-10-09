@@ -1,0 +1,27 @@
+.btn--white {
+  @include button(
+    $color-gray-4,
+    $fs-0,
+    $color-white-0,
+    $pd-1 + 1,
+    $pd-1 + 2,
+    $color-gray-3,
+    $color-black-0,
+    $color-white-0,
+    $color-gray-3
+  );
+}
+
+.btn--purple {
+  @include button(
+    $color-white-0,
+    $fs-0,
+    $bg-btn,
+    $pd-1 + 5,
+    $pd-1 + 7,
+    $bg-btn,
+    $color-white-0,
+    $bg-btn,
+    $bg-btn
+  );
+}

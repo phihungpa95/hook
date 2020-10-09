@@ -1,0 +1,142 @@
+@mixin text($color, $fs, $fw) {
+  color: $color;
+  font-size: $fs;
+  font-weight: $fw;
+}
+
+@mixin button(
+  $color,
+  $fs,
+  $bg-color,
+  $pd-top-bot,
+  $pd-right-left,
+  $border-color,
+  $color-hover,
+  $bg-color-hover,
+  $border-color-hover
+) {
+  color: $color;
+  font-size: $fs;
+  background-color: $bg-color;
+  padding: $pd-top-bot $pd-right-left;
+  &:hover {
+    color: $color-hover;
+    background-color: $bg-color-hover;
+    border: 1px solid $border-color-hover;
+  }
+}
+
+@mixin mediaQuery($screen) {
+  @if map-has-key($map: $breakpoints, $key: $screen) {
+    $value: map-get(
+      $map: $breakpoints,
+      $key: $screen,
+    );
+    @media screen and (max-width: $value) {
+      @content;
+    }
+  }
+  else {
+    @warn "`#($screen)` khong ton tai";
+  }
+}
+
+@mixin search(
+  $bg-color,
+  $fs-placeholder,
+  $bg-color-focus,
+  $border-color-focus
+) {
+  form {
+    background-color: $bg-color;
+    .form-control {
+      background-color: transparent;
+      border-color: transparent;
+      transition: none;
+      -webkit-transition: none;
+      -moz-transition: none;
+      -ms-transition: none;
+      -o-transition: none;
+      &::placeholder {
+        font-size: $fs-placeholder;
+      }
+      &:focus {
+        background-color: $bg-color-focus;
+        border-left-color: $border-color-focus;
+        border-top-color: $border-color-focus;
+        border-bottom-color: $border-color-focus;
+        box-shadow: none;
+      }
+      &:focus + .input-group-prepend {
+        .input-group-text {
+          background-color: $bg-color-focus;
+          border-right-color: $border-color-focus;
+          border-top-color: $border-color-focus;
+          border-bottom-color: $border-color-focus;
+          &:hover {
+            color: $color-white-0;
+            background-color: $color-red-0;
+          }
+        }
+      }
+    }
+    .input-group-prepend {
+      margin-left: -1px;
+      .input-group-text {
+        background-color: transparent;
+        border-color: transparent;
+        color: $color-red-0;
+        &:hover {
+          color: $color-white-0;
+          background-color: $color-red-0;
+        }
+      }
+    }
+  }
+}
+
+@mixin box($border-color-focus, $bg-color, $pd-top-bot, $pd-right-left) {
+  .categories {
+    .bg-custom {
+      .custom-bg {
+        border-top: $border-color-focus;
+        border-left: $border-color-focus;
+        border-right: $border-color-focus;
+        border-bottom: $border-color-focus;
+        background-color: $bg-color;
+        padding: $pd-right-left $pd-top-bot;
+        border: 1px solid;
+      }
+    }
+  }
+}
+
+@mixin slide-title($bg-color) {
+  background-color: $bg-color;
+}
+
+@mixin header-nav($d-flex, $w-70) {
+  display: $d-flex;
+  width: $w-70;
+}
+
+@mixin bg-slide($bg-repeat, $bg-cover, $t-center, $position) {
+  background-repeat: $bg-repeat;
+  background-size: $bg-cover;
+  text-align: $t-center;
+  position: $position;
+}
+
+@mixin width-rw($w-60) {
+  width: $w-60;
+}
+
+@mixin bg-studies($pd-1, $bg-white) {
+  padding-top: $pd-1;
+  padding-bottom: $pd-1;
+  background-color: $bg-white;
+}
+
+@mixin mr-bot($mg-2) {
+  margin-bottom: $mg-2;
+}
