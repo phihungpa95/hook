@@ -438,8 +438,13 @@
           .course__section--time {
             display: $d-flex;
             margin-bottom: $mg-1;
+            align-items: center;
+            img {
+              height: 18px;
+            }
             p {
               padding: 0 10px;
+              margin-bottom: 0;
             }
           }
           .light-green {
